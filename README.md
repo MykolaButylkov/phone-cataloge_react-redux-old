@@ -4,8 +4,8 @@ This is a directory application project built using React. It allows users to fi
 ## Demo
 You can see a live demo of this project [here](https://mykolabutylkov.github.io/phone-cataloge_react-redux/).
 
-## Layout design
-You can see the design of this project [here](https://www.figma.com/file/uEetgWenSRxk9jgiym6Yzp/Phone-catalog-redesign?type=design&node-id=1-2&mode=design&t=mk3mIg6fjlF202iZ-0)
+## Figma
+You can see the design of this project [here](https://www.figma.com/file/uEetgWenSRxk9jgiym6Yzp/Phone-catalog-redesign?type=design&node-id=1-2&mode=design&t=mk3mIg6fjlF202iZ-0).
 
 ## Technologies Used
 
