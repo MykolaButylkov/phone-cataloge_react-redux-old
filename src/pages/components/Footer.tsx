@@ -22,7 +22,7 @@ export const Footer: FC = () => {
         </Link>
         <div className="footer__container">
           <Link
-            to="https://github.com/MykolaButylkov/react_phone-catalog"
+            to="https://github.com/MykolaButylkov/phone-cataloge_react-redux"
             className="footer__link"
             target="_blank"
           >
