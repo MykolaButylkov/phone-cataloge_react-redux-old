@@ -4,6 +4,9 @@ This is a directory application project built using React. It allows users to fi
 ## Demo
 You can see a live demo of this project [here](https://mykolabutylkov.github.io/phone-cataloge_react-redux/).
 
+## Figma
+You can see the Figma design of this project [here](https://www.figma.com/file/uEetgWenSRxk9jgiym6Yzp/Phone-catalog-redesign?node-id=1%3A2).
+
 ## Technologies Used
 
 - `classnames`: This library is used for conditionally joining class names together;
