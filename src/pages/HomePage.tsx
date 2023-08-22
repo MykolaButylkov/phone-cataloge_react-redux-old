@@ -39,8 +39,8 @@ export const HomePage: React.FC = () => {
 
   const images = [
     { imgUrl: 'images/banner-phones.png', id: '01' },
-    { imgUrl: 'images/banner-phones.png', id: '02' },
-    { imgUrl: 'images/banner-phones.png', id: '03' },
+    { imgUrl: 'images/banner-tablets.png', id: '02' },
+    { imgUrl: 'images/banner-accessories.png', id: '03' },
   ];
 
   return (
