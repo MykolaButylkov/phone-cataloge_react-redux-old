@@ -16,6 +16,8 @@ const VISIBLE_SIZE_ROW = 1136; // 1136px visible length of Home-page;
 export const ProductsSlider: FC<Props> = ({ phones }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [offset, setOffset] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
 
   function handleLeftClick() {
     setOffset((prevOffset) => {
@@ -42,6 +44,35 @@ export const ProductsSlider: FC<Props> = ({ phones }) => {
     });
   }
 
+  function handleTouchStart(event: React.TouchEvent<HTMLDivElement>) {
+    setTouchStartX(event.touches[0].clientX);
+  }
+
+  function handleTouchMove(event: React.TouchEvent<HTMLDivElement>) {
+    if (touchStartX === null) {
+      return;
+    }
+
+    setTouchEndX(event.touches[0].clientX);
+  }
+
+  function handleTouchEnd() {
+    if (touchStartX === null || touchEndX === null) {
+      return;
+    }
+
+    const deltaX = touchEndX - touchStartX;
+
+    if (deltaX > 50) {
+      handleLeftClick();
+    } else if (deltaX < -50) {
+      handleRightClick();
+    }
+
+    setTouchStartX(null);
+    setTouchEndX(null);
+  }
+
   useEffect(() => {
     setProducts(phones);
   }, [phones]);
@@ -64,7 +95,12 @@ export const ProductsSlider: FC<Props> = ({ phones }) => {
           <img src="images/icons/ArrowRight.svg" alt="" />
         </button>
       </div>
-      <div className="products-slider__container-products">
+      <div
+        className="products-slider__container-products"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {products.map(product => (
           <div
             key={product.id}

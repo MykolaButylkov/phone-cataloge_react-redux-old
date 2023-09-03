@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import React, {
@@ -17,7 +18,8 @@ export const PreviewSlider: React.FC<Props> = React.memo(({ children }) => {
   const [pages, setPages] = useState<JSX.Element[]>(children);
   const [offset, setOffset] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0); // Track the active slide index
-
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
   const intervalRef = useRef<number | null>(null);
 
   function handleLeftClick() {
@@ -69,6 +71,35 @@ export const PreviewSlider: React.FC<Props> = React.memo(({ children }) => {
     }, INTERVAL_DELAY);
   }
 
+  function handleTouchStart(event: React.TouchEvent<HTMLDivElement>) {
+    setTouchStartX(event.touches[0].clientX);
+  }
+
+  function handleTouchMove(event: React.TouchEvent<HTMLDivElement>) {
+    if (touchStartX === null) {
+      return;
+    }
+
+    setTouchEndX(event.touches[0].clientX);
+  }
+
+  function handleTouchEnd() {
+    if (touchStartX === null || touchEndX === null) {
+      return;
+    }
+
+    const deltaX = touchEndX - touchStartX;
+
+    if (deltaX > 50) {
+      handleLeftClick();
+    } else if (deltaX < -50) {
+      handleRightClick();
+    }
+
+    setTouchStartX(null);
+    setTouchEndX(null);
+  }
+
   // Function to handle pagination clicks
   function handlePaginationClick(index: number) {
     setActiveIndex(index); // Set the active slide index
@@ -103,7 +134,12 @@ export const PreviewSlider: React.FC<Props> = React.memo(({ children }) => {
       >
         <img src="images/icons/ArrowLeft.svg" alt="" />
       </button>
-      <div className="preview-slider__container">
+      <div
+        className="preview-slider__container"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="preview-slider__pictures pictures">{pages}</div>
         <div className="preview-slider__pagination pagination">
           {pages.map((page, index) => (
