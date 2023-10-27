@@ -18,7 +18,7 @@ export const Footer: FC = () => {
     <footer className="footer">
       <div className="footer__content">
         <Link to="/" className="footer__link">
-          <img src="images/logo.jpg" alt="Logo" />
+          <img src="images/logo.webp" alt="Logo" />
         </Link>
         <div className="footer__container">
           <Link
