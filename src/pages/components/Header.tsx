@@ -50,7 +50,7 @@ export const Header: FC = () => {
           </button>
           <nav className="header__nav nav">
             <NavLink to="/" className="nav__link">
-              <img src="images/logo.jpg" alt="Logo" />
+              <img src="images/logo.webp" alt="Logo" />
             </NavLink>
             <NavLink
               to="/"
@@ -160,7 +160,7 @@ export const Header: FC = () => {
             >
               <img
                 className="nav-burger__logo"
-                src="images/logo.jpg"
+                src="images/logo.webp"
                 alt="Logo"
               />
             </NavLink>
