@@ -38,9 +38,9 @@ export const HomePage: React.FC = () => {
   );
 
   const images = [
-    { imgUrl: 'images/banner-phones.png', id: '01' },
-    { imgUrl: 'images/banner-tablets2.png', id: '03' },
-    { imgUrl: 'images/banner-accessories2.png', id: '02' },
+    { imgUrl: 'images/banner-phones.webp', id: '01' },
+    { imgUrl: 'images/banner-tablets2.webp', id: '03' },
+    { imgUrl: 'images/banner-accessories2.webp', id: '02' },
   ];
 
   return (
@@ -76,7 +76,7 @@ export const HomePage: React.FC = () => {
             <div className="shop-by-category__category category">
               <Link to="phones" className="category__link">
                 <img
-                  src="images/preview-category-phone.png"
+                  src="images/preview-category-phone.webp"
                   alt="Phone Category"
                   className="category__img"
                 />
@@ -89,7 +89,7 @@ export const HomePage: React.FC = () => {
             <div className="shop-by-category__category category">
               <Link to="tablets" className="category__link">
                 <img
-                  src="images/preview-category-tablets.png"
+                  src="images/preview-category-tablets.webp"
                   alt="Phone Category"
                   className="category__img"
                 />
@@ -102,7 +102,7 @@ export const HomePage: React.FC = () => {
             <div className="shop-by-category__category category">
               <Link to="accessories" className="category__link">
                 <img
-                  src="images/preview-category-accessories.png"
+                  src="images/preview-category-accessories.webp"
                   alt="Phone Category"
                   className="category__img"
                 />
